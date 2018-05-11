@@ -9,11 +9,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
 import com.example.acroapp.R;
+import com.example.acroapp.about.AboutActivity;
 import com.example.acroapp.app.AcroApp;
 import com.example.acroapp.base.BaseActivity;
 import com.example.acroapp.service.to.Lf;
@@ -28,6 +30,8 @@ import butterknife.OnClick;
 
 public class SearchActivity extends BaseActivity
         implements SearchContract.View, NavigationView.OnNavigationItemSelectedListener {
+
+    private static final String TAG = SearchActivity.class.getSimpleName() + "_TAG";
 
     @BindView(R.id.etSearch) EditText searchET;
     @BindView(R.id.rvResults) RecyclerView resultsRV;
@@ -74,6 +78,7 @@ public class SearchActivity extends BaseActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Snackbar.make(getRootView(), getResources().getString(R.string.lbl_api_ack), Snackbar.LENGTH_LONG).show();
             return true;
         }
 
@@ -87,7 +92,7 @@ public class SearchActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_about) {
-
+            startActivity(AboutActivity.getAboutIntent(this));
         }
 
         drawer.closeDrawer(GravityCompat.START);
@@ -145,12 +150,12 @@ public class SearchActivity extends BaseActivity
 
     @Override
     public void onFetchDataStarted() {
-        Snackbar.make(getRootView(), "This is main activity onFetchDataStarted", Snackbar.LENGTH_LONG).show();
+        Log.i(TAG, "onFetchDataStarted: fetching data");
     }
 
     @Override
     public void onFetchDataCompleted() {
-        Snackbar.make(getRootView(), "This is main activity onFetchDataCompleted", Snackbar.LENGTH_LONG).show();
+        Log.i(TAG, "onFetchDataCompleted: data fetch complete");
     }
 
     @Override
@@ -160,7 +165,7 @@ public class SearchActivity extends BaseActivity
 
     @Override
     public void onFetchDataError(Throwable throwable) {
-        Snackbar.make(getRootView(), "This is main activity onFetchDataError", Snackbar.LENGTH_LONG).show();
+        Snackbar.make(getRootView(), getResources().getString(R.string.lbl_api_error), Snackbar.LENGTH_LONG).show();
     }
 
 }

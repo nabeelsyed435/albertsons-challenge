@@ -2,11 +2,15 @@
     <string name="app_name">AcroApp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Nabeel Syed</string>
+    <string name="nav_header_subtitle">nabeelmohammedsyed@gmail.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="lbl_btn_search">Search</string>
     <string name="et_lbl_hint_search">Type in your search</string>
     <string name="lbl_menu_about">About</string>
+    <string name="lbl_api_error">A Backend error</string>
+    <string name="lbl_api_ack">Powered by http://www.nactem.ac.uk/ API</string>
+    <string name="lbl_app_about">To enable the app I included:\n\n Google Dagger 2 - For DI and decoupling of the code\n\n RxAndroid - To work with RxJava in Android\n\nRxJava - For reactive programming including retrofit calls\n\nSquare Retrofit - Network Wrapper to place network calls\n\nSquare HttpLoggingInterceptor - To be able to log each network call made for debugging purposes\n\nFor Architecture I chose MVP</string>
+    <string name="lbl_about_acroapp">About AcroApp</string>
 </resources>
