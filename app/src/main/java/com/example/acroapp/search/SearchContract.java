@@ -1,6 +1,9 @@
 package com.example.acroapp.search;
 
+import com.example.acroapp.service.to.Lf;
 import com.example.acroapp.service.to.NactemResponse;
+
+import java.util.List;
 
 /**
  *
@@ -24,9 +27,9 @@ public interface SearchContract {
 
         /**
          *
-         * @param nactemResponse
+         * @param acronyms
          */
-        void onFetchDataSuccess(NactemResponse nactemResponse);
+        void onFetchDataSuccess(List<Lf> acronyms);
 
         /**
          *
@@ -42,13 +45,9 @@ public interface SearchContract {
 
         /**
          *
+         * @param acronym
          */
-        void loadData();
-
-        /**
-         *
-         */
-        void subscribe();
+        void loadData(String acronym);
 
         /**
          *
@@ -58,7 +57,7 @@ public interface SearchContract {
         /**
          *
          */
-        void onDestroy();
+        void detach();
 
     }
 
