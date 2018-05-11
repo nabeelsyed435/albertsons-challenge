@@ -1,6 +1,5 @@
 package com.example.acroapp.search;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,6 +32,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.resultTV.setText(acronymExpanded.getLf());
     }
 
+    /**
+     * Helper method to update the Adapter's data set with every search
+     * @param acronyms
+     */
     public void updateAcronyms(List<Lf> acronyms) {
         this.acronyms = acronyms;
         notifyDataSetChanged();
@@ -52,6 +55,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+
     }
 
 }

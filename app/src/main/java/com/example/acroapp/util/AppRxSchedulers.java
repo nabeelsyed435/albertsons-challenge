@@ -4,6 +4,9 @@ import rx.Scheduler;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
+/**
+ * AppRxSchedulers class is the concrete implementation of the {@link RxSchedulers} interface
+ */
 public class AppRxSchedulers implements RxSchedulers {
 
     @Override

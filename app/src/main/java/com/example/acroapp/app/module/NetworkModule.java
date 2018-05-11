@@ -44,8 +44,9 @@ public class NetworkModule {
     }
 
     /**
-     *
-     * @return
+     * Provider method to set RxJava as the call adapter for {@link Retrofit}. Through this we can
+     * use {@link rx.Observable} instead of {@link retrofit2.Call} for our network calls
+     * @return The concrete instance of the {@link RxJavaCallAdapterFactory}
      */
     @Singleton
     @Provides
@@ -54,8 +55,10 @@ public class NetworkModule {
     }
 
     /**
-     *
-     * @return
+     * Provider method for {@link Retrofit}'s converter factory. Retrofit can be configure with
+     * different converters like Moshi, Jackson and/or SimpleXML. This method provides GSON's concrete
+     * {@link GsonConverterFactory} instance
+     * @return The concrete instance of {@link GsonConverterFactory}
      */
     @Singleton
     @Provides
@@ -64,9 +67,10 @@ public class NetworkModule {
     }
 
     /**
-     *
-     * @param loggingInterceptor
-     * @return
+     * Provider method for the configured {@link OkHttpClient} through this method we can set different
+     * and/or multiple interceptors, timeout values, etc.
+     * @param loggingInterceptor the already configured {@link HttpLoggingInterceptor} instance.
+     * @return the built {@link OkHttpClient} client
      */
     @Singleton
     @Provides
@@ -78,7 +82,9 @@ public class NetworkModule {
     }
 
     /**
-     *
+     * Provider method for the configured {@link HttpLoggingInterceptor} instance. Current level is
+     * set to BASIC, but further configuration can be enabled through {@link com.example.acroapp.BuildConfig}
+     * flags for different levels set to release or debug apks
      * @return
      */
     @Singleton

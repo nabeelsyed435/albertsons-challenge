@@ -8,8 +8,14 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 import rx.Observable;
 
+/**
+ * NactemAPI is the {@link retrofit2.Retrofit} interface with the endpoints the {@link com.example.acroapp.app.AcroApp} interacts
+ */
 public interface NactemAPI {
 
+    /**
+     * Constant {@link String} value with the Nactem API base URL
+     */
     String NACTEM_API_URL = "http://www.nactem.ac.uk/";
 
     @GET("software/acromine/dictionary.py")

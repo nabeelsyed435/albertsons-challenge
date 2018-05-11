@@ -64,19 +64,14 @@ public class SearchActivity extends BaseActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             Snackbar.make(getRootView(), getResources().getString(R.string.lbl_api_ack), Snackbar.LENGTH_LONG).show();
             return true;
@@ -111,6 +106,9 @@ public class SearchActivity extends BaseActivity
         searchPresenter.detach();
     }
 
+    /**
+     * Helper method to init the views and clean up the onCreate method
+     */
     private void initViews() {
         searchAdapter = new SearchAdapter();
         setSupportActionBar(toolbar);
@@ -125,6 +123,10 @@ public class SearchActivity extends BaseActivity
         resultsRV.setAdapter(searchAdapter);
         resultsRV.setLayoutManager(new LinearLayoutManager(this));
     }
+
+    /**
+     * Helper method to construct Dagger {@link SearchComponent} and increase readability of the onCreate
+     */
     private void initDagger() {
         DaggerSearchComponent
                 .builder()
@@ -134,6 +136,10 @@ public class SearchActivity extends BaseActivity
                 .inject(this);
     }
 
+    /**
+     * Helper method to validate if the input given is valid
+     * @return
+     */
     private boolean isInputValid() {
         if(searchET.getText().toString() == null || searchET.getText().toString().isEmpty()) {
             return false;
