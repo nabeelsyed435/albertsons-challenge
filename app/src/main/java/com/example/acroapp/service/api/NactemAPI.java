@@ -8,7 +8,7 @@ import rx.Observable;
 
 public interface NactemAPI {
 
-    String NACTEM_API_ULR = "http://www.nactem.ac.uk/";
+    String NACTEM_API_URL = "http://www.nactem.ac.uk/";
 
     @GET("software/acromine/dictionary.py")
     Observable<NactemResponse> getAcronym(@Query("sf") String sf);
