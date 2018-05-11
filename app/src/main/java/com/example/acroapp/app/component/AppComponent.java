@@ -8,8 +8,17 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
+/**
+ *
+ */
 @Singleton
 @Component(modules = {NetworkModule.class, NactemAPIModule.class})
 public interface AppComponent {
+
+    /**
+     *
+     * @return
+     */
     NactemAPI nactemApi();
+
 }

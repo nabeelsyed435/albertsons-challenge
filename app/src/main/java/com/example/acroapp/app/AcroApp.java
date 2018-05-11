@@ -5,6 +5,9 @@ import android.app.Application;
 import com.example.acroapp.app.component.AppComponent;
 import com.example.acroapp.app.component.DaggerAppComponent;
 
+/**
+ *
+ */
 public class AcroApp extends Application {
 
     private static AppComponent daggerAppComponent;
